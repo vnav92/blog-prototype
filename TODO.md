@@ -13,3 +13,5 @@
 # Add linter & precommit-hook
 
 # Add proper readme
+
+# Add localStorage memorisation for dark/regular theme
