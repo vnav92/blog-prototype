@@ -1,0 +1,11 @@
+.pageLayoutWrapper {
+  height: 100%;
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.childrenWrapper {
+  flex: 1;
+}

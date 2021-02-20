@@ -1,11 +1,15 @@
-// If you don't want to use TypeScript you can delete this file!
-import React from "react";
+import React from 'react';
+
+import { PageLayout, MainContent } from '../components';
 
 const App = () => {
   return (
-    <p>hello blog</p>
-  )
-}
+    <PageLayout>
+      <MainContent blogTitle="test title" blogAuthor="Matteo">
+        <p>main content here</p>
+      </MainContent>
+    </PageLayout>
+  );
+};
 
 export default App;
-

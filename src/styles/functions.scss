@@ -1,0 +1,6 @@
+@import './variables.scss';
+
+@function multiplyDefaultSpacing($factor) {
+  $rem-size: $default-spacing / $main-font-size;
+  @return calc(#{$rem-size} * #{$factor}rem);
+}
