@@ -1,11 +1,16 @@
 import React from "react"
 
-import { PageLayout } from "../components"
+import { PageLayout, MainContent } from "../components"
 
 const App = () => {
   return (
     <PageLayout>
-      <p>hello blog</p>
+      <MainContent
+        blogTitle="test title"
+        blogAuthor="Matteo"
+      >
+        <p>main content here</p>
+      </MainContent>
     </PageLayout>
   )
 }

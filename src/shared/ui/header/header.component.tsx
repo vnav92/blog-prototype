@@ -1,17 +1,19 @@
 import React from "react";
-import { createUseStyles } from 'react-jss';
-import classNames from 'classnames';
+import { Link } from 'gatsby';
+import classNames from "classnames";
+import { createUseStyles } from "react-jss";
 
 import styles from "./header.module.scss"
 
 const useThemedStyles = createUseStyles(theme => ({
   headerWrapper: {
-    background: theme.primaryColor
-  }
+    background: theme.primaryColor,
+  },
 }))
 
 type HeaderProps = {
   title: string;
+  className?: string;
   // TODO remove optional from prop when image serving will be handled
   logoImageSrc?: string;
   onThemeModeChange: () => void;
@@ -20,30 +22,30 @@ type HeaderProps = {
 export const Header: React.FC<HeaderProps> = ({
   title,
   logoImageSrc,
-  onThemeModeChange
+  onThemeModeChange,
 }) => {
-  const themedStyles = useThemedStyles();
-  // const themedStyles = useThemedStyles({theme});
+  const themedStyles = useThemedStyles()
   return (
-    <div className={classNames(themedStyles.headerWrapper, styles.headerWrapper)}>
+    <div
+      className={classNames(themedStyles.headerWrapper, styles.headerWrapper)}
+    >
       <div className={styles.titleSection}>
         {logoImageSrc && <img src={logoImageSrc} alt="blog logo image" />}
-        <h1>{title}</h1>
+        <h1>
+          <Link to="/">
+            {title}
+          </Link>
+        </h1>
       </div>
       <ul className={styles.navigation}>
         <li className={styles.navigationItem}>
-          <a>Blog</a>
+          <Link to="/">Blog</Link>
         </li>
         <li>
-          About me
-        <a></a>
+          <Link to="/about">About me</Link>
         </li>
       </ul>
-      <button onClick={onThemeModeChange}
-      >
-        toggle theme
-      </button>
+      <button onClick={onThemeModeChange}>toggle theme</button>
     </div>
   )
 }
-

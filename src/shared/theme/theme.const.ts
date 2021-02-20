@@ -2,11 +2,11 @@ import { Theme } from "./theme.type";
 
 export const defaultTheme: Theme = {
   regularMode: {
-    primaryColor: 'red',
-    primaryContrastColor: 'black'
+    primaryColor: "red",
+    primaryContrastColor: "black",
   },
   darkMode: {
-    primaryColor: 'black',
-    primaryContrastColor: 'white'
-  }
+    primaryColor: "black",
+    primaryContrastColor: "grey",
+  },
 }
