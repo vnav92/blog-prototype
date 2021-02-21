@@ -4,7 +4,7 @@ import { createUseStyles } from 'react-jss';
 
 import styles from './main-content.module.scss';
 
-const useThemedStyles = createUseStyles(theme => ({
+const useThemedStyles = createUseStyles((theme) => ({
   titleText: {
     color: theme.primaryContrastColor,
   },
@@ -24,10 +24,20 @@ export const MainContent: React.FC<MainContentProps> = ({
   return (
     <div className={styles.wrapper}>
       <div className={styles.blogTitleWrapper}>
-        <h2 className={classNames(themedStyles.titleText, styles.blogTitle)}>
+        <h2
+          className={classNames(
+            themedStyles.titleText,
+            styles.blogTitle,
+          )}
+        >
           {blogTitle}
         </h2>
-        <h3 className={classNames(themedStyles.titleText, styles.blogAuthor)}>
+        <h3
+          className={classNames(
+            themedStyles.titleText,
+            styles.blogAuthor,
+          )}
+        >
           Blog of {blogAuthor}
         </h3>
       </div>

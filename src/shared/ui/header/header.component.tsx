@@ -5,7 +5,7 @@ import { createUseStyles } from 'react-jss';
 
 import styles from './header.module.scss';
 
-const useThemedStyles = createUseStyles(theme => ({
+const useThemedStyles = createUseStyles((theme) => ({
   headerWrapper: {
     background: theme.primaryColor,
   },
@@ -27,10 +27,15 @@ export const Header: React.FC<HeaderProps> = ({
   const themedStyles = useThemedStyles();
   return (
     <div
-      className={classNames(themedStyles.headerWrapper, styles.headerWrapper)}
+      className={classNames(
+        themedStyles.headerWrapper,
+        styles.headerWrapper,
+      )}
     >
       <div className={styles.titleSection}>
-        {logoImageSrc && <img src={logoImageSrc} alt="blog logo image" />}
+        {logoImageSrc && (
+          <img src={logoImageSrc} alt="blog logo image" />
+        )}
         <h1>
           <Link to="/">{title}</Link>
         </h1>
