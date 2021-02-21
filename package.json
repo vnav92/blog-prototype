@@ -23,6 +23,9 @@
     "sass": "^1.32.8"
   },
   "devDependencies": {
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-prettier": "^3.3.1",
     "prettier": "2.2.1"
   },
   "keywords": [

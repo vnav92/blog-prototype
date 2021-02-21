@@ -9,12 +9,16 @@ export const PageLayout = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   return (
     <ThemeProvider
-      theme={isDarkMode ? defaultTheme.darkMode : defaultTheme.regularMode}
+      theme={
+        isDarkMode ? defaultTheme.darkMode : defaultTheme.regularMode
+      }
     >
       <div className={styles.pageLayoutWrapper}>
         <Header
           title="placeholder"
-          onThemeModeChange={() => setIsDarkMode(isEnabled => !isEnabled)}
+          onThemeModeChange={() =>
+            setIsDarkMode((isEnabled) => !isEnabled)
+          }
         />
         <div className={styles.childrenWrapper}>{children}</div>
       </div>
