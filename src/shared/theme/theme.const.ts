@@ -1,6 +1,6 @@
-import { Theme } from './theme.type';
+import { DefaultTheme } from './theme.type';
 
-export const defaultTheme: Theme = {
+export const defaultTheme: DefaultTheme = {
   regularMode: {
     primaryColor: 'red',
     primaryContrastColor: 'black',

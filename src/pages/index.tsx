@@ -1,11 +1,21 @@
 import React from 'react';
 
+import { graphql } from 'gatsby';
+import { Query } from '../../graphql-types';
+
 import { PageLayout, MainContent } from '../components';
 
-const App = () => {
+type AppProps ={
+  data: {
+    allContentfulBlogMetaData: Query['allContentfulBlogMetaData']
+  }
+}
+
+const App: React.FC<AppProps>= ({ data }) => {
+  const { author, title } = data.allContentfulBlogMetaData.nodes[0];
   return (
-    <PageLayout>
-      <MainContent blogTitle="test title" blogAuthor="Matteo">
+    <PageLayout title={title}>
+      <MainContent blogTitle={title} blogAuthor={author}>
         <p>main content here</p>
       </MainContent>
     </PageLayout>
@@ -13,3 +23,14 @@ const App = () => {
 };
 
 export default App;
+
+export const query = graphql`
+  query BlogMetaData {
+    allContentfulBlogMetaData {
+      nodes {
+        author
+        title
+      }
+    }
+  }
+`

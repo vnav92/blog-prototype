@@ -3,9 +3,11 @@ import { Link } from 'gatsby';
 import classNames from 'classnames';
 import { createUseStyles } from 'react-jss';
 
+import { ThemeMode } from '../../theme/theme.type';
+
 import styles from './header.module.scss';
 
-const useThemedStyles = createUseStyles((theme) => ({
+const useThemedStyles = createUseStyles((theme: ThemeMode) => ({
   headerWrapper: {
     background: theme.primaryColor,
   },

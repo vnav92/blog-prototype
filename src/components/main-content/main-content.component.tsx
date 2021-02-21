@@ -2,9 +2,10 @@ import React from 'react';
 import classNames from 'classnames';
 import { createUseStyles } from 'react-jss';
 
+import { ThemeMode } from '../../shared/theme/theme.type';
 import styles from './main-content.module.scss';
 
-const useThemedStyles = createUseStyles((theme) => ({
+const useThemedStyles = createUseStyles((theme: ThemeMode) => ({
   titleText: {
     color: theme.primaryContrastColor,
   },
