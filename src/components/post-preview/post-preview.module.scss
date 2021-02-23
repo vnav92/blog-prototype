@@ -1,0 +1,27 @@
+@import '../../styles';
+
+$image-wrapper-width: 150px;
+
+.postPreviewWrapper {
+  display: flex;
+  border: 2px solid;
+  margin-bottom: multiplyDefaultSpacing(0.5);
+  padding: multiplyDefaultSpacing(0.5);
+  cursor: pointer;
+}
+
+.imageWrapper {
+  width: $image-wrapper-width;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.previewContentWrapper {
+  width: calc(100% - $image-wrapper-width);
+  padding-left: multiplyDefaultSpacing(0.5);
+}
+
+.postIntroduction {
+  margin-top: multiplyDefaultSpacing(2);
+}

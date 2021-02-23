@@ -6,4 +6,6 @@ export type DefaultTheme = {
 export type ThemeMode = {
   primaryColor: string;
   primaryContrastColor: string;
+  secondaryColor: string;
+  primaryTextColor: string;
 };
