@@ -1,9 +1,11 @@
-export type Theme = {
+export type DefaultTheme = {
   regularMode: ThemeMode;
   darkMode: ThemeMode;
 };
 
-type ThemeMode = {
+export type ThemeMode = {
   primaryColor: string;
   primaryContrastColor: string;
+  secondaryColor: string;
+  primaryTextColor: string;
 };

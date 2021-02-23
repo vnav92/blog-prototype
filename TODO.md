@@ -4,14 +4,14 @@
 
 # Add gatsby-ssr.js file and handle ssr
 
-# Add night/day theme
-
-# Uncomment and configute manifest plugin in gatsby-config.js
+# Uncomment and configure manifest plugin in gatsby-config.js
 
 # Add and configure gatsby-browser.js
 
-# Add linter & precommit-hook
+# Add precommit-hook
 
 # Add proper readme
 
 # Add localStorage memorisation for dark/regular theme
+
+# Add “blur-up” technique or a ”traced placeholder” SVG to show a preview of the image while it loads

@@ -3,12 +3,14 @@ import { Link } from 'gatsby';
 import classNames from 'classnames';
 import { createUseStyles } from 'react-jss';
 
+import { ThemeMode } from '../../theme/theme.type';
+
 import styles from './header.module.scss';
 
-const useThemedStyles = createUseStyles((theme) => ({
+const useThemedStyles = createUseStyles((theme: ThemeMode) => ({
   headerWrapper: {
-    background: theme.primaryColor,
-  },
+    background: theme.primaryColor
+  }
 }));
 
 type HeaderProps = {
@@ -22,14 +24,14 @@ type HeaderProps = {
 export const Header: React.FC<HeaderProps> = ({
   title,
   logoImageSrc,
-  onThemeModeChange,
+  onThemeModeChange
 }) => {
   const themedStyles = useThemedStyles();
   return (
     <div
       className={classNames(
         themedStyles.headerWrapper,
-        styles.headerWrapper,
+        styles.headerWrapper
       )}
     >
       <div className={styles.titleSection}>

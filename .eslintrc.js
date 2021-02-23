@@ -1,6 +1,6 @@
 module.exports = {
   globals: {
-    __PATH_PREFIX__: true,
+    __PATH_PREFIX__: true
   },
   extends: ['prettier', 'react-app'],
   rules: {
@@ -11,6 +11,6 @@ module.exports = {
     'no-func-assign': 'error',
     'no-inner-declarations': 'error',
     'no-unreachable': 'error',
-    'no-unsafe-finally': 'error',
-  },
+    'no-unsafe-finally': 'error'
+  }
 };
