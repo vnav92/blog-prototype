@@ -5,21 +5,21 @@ import { Query } from '../../graphql-types';
 
 import { PageLayout, MainContent, PostPreview } from '../components';
 
-type AppProps ={
+type AppProps = {
   data: {
-    allContentfulBlogMetaData: Query['allContentfulBlogMetaData'],
-    allContentfulBlogPost: Query['allContentfulBlogPost']
-  }
-}
+    allContentfulBlogMetaData: Query['allContentfulBlogMetaData'];
+    allContentfulBlogPost: Query['allContentfulBlogPost'];
+  };
+};
 
-const App: React.FC<AppProps>= ({ data }) => {
+const App: React.FC<AppProps> = ({ data }) => {
   const { author, title } = data.allContentfulBlogMetaData.nodes[0];
   const blogPosts = data.allContentfulBlogPost.nodes;
   return (
     <PageLayout title={title}>
       <MainContent blogTitle={title} blogAuthor={author}>
         {blogPosts.map((post, index) => (
-          <PostPreview key={index} postPreview={post}/>
+          <PostPreview key={index} postPreview={post} />
         ))}
       </MainContent>
     </PageLayout>
@@ -38,8 +38,8 @@ export const query = graphql`
     }
     allContentfulBlogPost {
       nodes {
-        title,
-        introduction,
+        title
+        introduction
         primaryImage {
           fixed(height: 100) {
             src
@@ -48,4 +48,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

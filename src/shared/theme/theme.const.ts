@@ -12,5 +12,5 @@ export const defaultTheme: DefaultTheme = {
     primaryContrastColor: 'grey',
     secondaryColor: 'grey',
     primaryTextColor: 'grey'
-  },
+  }
 };

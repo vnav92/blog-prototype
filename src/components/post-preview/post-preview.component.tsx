@@ -17,21 +17,39 @@ const useThemedStyles = createUseStyles((theme: ThemeMode) => ({
 }));
 
 type PostPreviewProps = {
-  postPreview: Pick<ContentfulBlogPost, 'title' | 'introduction' | 'primaryImage'>
-}
+  postPreview: Pick<
+    ContentfulBlogPost,
+    'title' | 'introduction' | 'primaryImage'
+  >;
+};
 export const PostPreview: React.FC<PostPreviewProps> = ({
   postPreview
 }) => {
   const themedStyles = useThemedStyles();
   return (
-    <div className={classNames(themedStyles.postPreviewWrapper, styles.postPreviewWrapper)}>
+    <div
+      className={classNames(
+        themedStyles.postPreviewWrapper,
+        styles.postPreviewWrapper
+      )}
+    >
       <div className={styles.imageWrapper}>
-        <img className={styles.image} src={postPreview.primaryImage.fixed.src} />
+        <img
+          className={styles.image}
+          src={postPreview.primaryImage.fixed.src}
+        />
       </div>
       <div className={styles.previewContentWrapper}>
         <h3 className={themedStyles.text}>{postPreview.title}</h3>
-        <span className={classNames(themedStyles.text, styles.postIntroduction)}>{postPreview.introduction}</span>
+        <span
+          className={classNames(
+            themedStyles.text,
+            styles.postIntroduction
+          )}
+        >
+          {postPreview.introduction}
+        </span>
       </div>
     </div>
-  )
-}
+  );
+};
