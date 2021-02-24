@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { graphql } from 'gatsby';
-import { Query } from '../../graphql-types';
 
+import { Query } from '../../graphql-types';
 import { PageLayout, MainContent, PostPreview } from '../components';
 
 type AppProps = {
