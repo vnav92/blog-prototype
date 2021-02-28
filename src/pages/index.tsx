@@ -17,7 +17,7 @@ const App: React.FC<AppProps> = ({ data }) => {
   return (
     <PageLayout title={title}>
       <MainContent blogTitle={title} blogAuthor={author}>
-        {blogPosts.map(post => (
+        {blogPosts.map((post) => (
           <PostPreview
             key={post.contentful_id}
             postPreview={{

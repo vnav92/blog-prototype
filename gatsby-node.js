@@ -34,23 +34,21 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors);
         }
 
-        result.data.allContentfulBlogPost.nodes.forEach(
-          node => {
-            createPage({
-              path: `/posts/${node.contentful_id}`,
-              component: template,
-              context: {
-                title: node.title,
-                introduction: node.introduction,
-                primaryImage: node.primaryImage,
-                createdAt: node.createdAt,
-                acapitOne: node.acapitOne,
-                imageAcapitOne: node.imageAcapitOne,
-                acapitTwo: node.acapitTwo
-              }
-            });
-          }
-        );
+        result.data.allContentfulBlogPost.nodes.forEach((node) => {
+          createPage({
+            path: `/posts/${node.contentful_id}`,
+            component: template,
+            context: {
+              title: node.title,
+              introduction: node.introduction,
+              primaryImage: node.primaryImage,
+              createdAt: node.createdAt,
+              acapitOne: node.acapitOne,
+              imageAcapitOne: node.imageAcapitOne,
+              acapitTwo: node.acapitTwo
+            }
+          });
+        });
         return;
       })
     );
