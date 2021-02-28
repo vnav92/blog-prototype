@@ -25,6 +25,7 @@ exports.createPages = ({ graphql, actions }) => {
                   src
                 }
               }
+              contentful_id
             }
           }
         }
@@ -34,12 +35,18 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         result.data.allContentfulBlogPost.nodes.forEach(
-          (node, index) => {
+          node => {
             createPage({
-              path: `blog-post-${index + 1}`,
+              path: `/posts/${node.contentful_id}`,
               component: template,
               context: {
-                title: 'test'
+                title: node.title,
+                introduction: node.introduction,
+                primaryImage: node.primaryImage,
+                createdAt: node.createdAt,
+                acapitOne: node.acapitOne,
+                imageAcapitOne: node.imageAcapitOne,
+                acapitTwo: node.acapitTwo
               }
             });
           }

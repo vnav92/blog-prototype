@@ -17,8 +17,16 @@ const App: React.FC<AppProps> = ({ data }) => {
   return (
     <PageLayout title={title}>
       <MainContent blogTitle={title} blogAuthor={author}>
-        {blogPosts.map((post, index) => (
-          <PostPreview key={index} postPreview={post} />
+        {blogPosts.map(post => (
+          <PostPreview
+            key={post.contentful_id}
+            postPreview={{
+              contentful_id: post.contentful_id,
+              title: post.title,
+              introduction: post.introduction,
+              primaryImage: post.primaryImage
+            }}
+          />
         ))}
       </MainContent>
     </PageLayout>
@@ -44,6 +52,7 @@ export const query = graphql`
             src
           }
         }
+        contentful_id
       }
     }
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { createUseStyles } from 'react-jss';
 import classNames from 'classnames';
 
@@ -19,7 +20,7 @@ const useThemedStyles = createUseStyles((theme: ThemeMode) => ({
 type PostPreviewProps = {
   postPreview: Pick<
     ContentfulBlogPost,
-    'title' | 'introduction' | 'primaryImage'
+    'contentful_id' | 'title' | 'introduction' | 'primaryImage'
   >;
 };
 export const PostPreview: React.FC<PostPreviewProps> = ({
@@ -27,7 +28,8 @@ export const PostPreview: React.FC<PostPreviewProps> = ({
 }) => {
   const themedStyles = useThemedStyles();
   return (
-    <div
+    <Link
+      to={`posts/${postPreview.contentful_id}`}
       className={classNames(
         themedStyles.postPreviewWrapper,
         styles.postPreviewWrapper
@@ -50,6 +52,6 @@ export const PostPreview: React.FC<PostPreviewProps> = ({
           {postPreview.introduction}
         </span>
       </div>
-    </div>
+    </Link>
   );
 };
