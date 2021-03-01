@@ -1,8 +1,9 @@
 const path = require('path');
 
-const TEMPLATE_PATH = 'src/components/blog-post/blog-post.component.tsx';
+const TEMPLATE_PATH =
+  'src/components/blog-post/blog-post.component.tsx';
 
-const getPageContext = data => ({
+const getPageContext = (data) => ({
   title: data.title,
   introduction: data.introduction,
   primaryImage: data.primaryImage,
