@@ -1,0 +1,51 @@
+@import '../../styles';
+
+.wrapper {
+  width: 100%;
+}
+
+.headerWrapper {
+  width: 100%;
+  height: 50%;
+  min-height: 300px;
+  background-attachment: fixed;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.introductionWrapper {
+  padding: multiplyDefaultSpacing(3);
+  text-align: center;
+}
+
+.acapitWrapper {
+  padding-bottom: multiplyDefaultSpacing(3);
+}
+
+.acapit {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.image {
+  display: block;
+  margin: auto;
+}
+
+.imageDescription {
+  display: block;
+  text-align: center;
+  max-width: 40%;
+  margin: auto;
+  padding: {
+    top: multiplyDefaultSpacing(0.5);
+    bottom: multiplyDefaultSpacing(1);
+  }
+}
+
+.introduction {
+  font-size: 1.5rem;
+}

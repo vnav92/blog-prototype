@@ -1,11 +1,23 @@
 const path = require('path');
 
+const TEMPLATE_PATH = 'src/components/blog-post/blog-post.component.tsx';
+
+const getPageContext = data => ({
+  title: data.title,
+  introduction: data.introduction,
+  primaryImage: data.primaryImage,
+  imageAcapitOne: data.imageAcapitOne,
+  createdAt: data.createdAt,
+  acapitOne: data.acapitOne,
+  imageAcapitOne: data.imageAcapitOne,
+  imageAcapitOneDescription: data.imageAcapitOneDescription,
+  acapitTwo: data.acapitTwo
+});
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   return new Promise((resolve, reject) => {
-    const template = path.resolve(
-      'src/components/blog-post/blog-post.component.tsx'
-    );
+    const template = path.resolve(TEMPLATE_PATH);
     resolve(
       graphql(`
         {
@@ -25,6 +37,12 @@ exports.createPages = ({ graphql, actions }) => {
                   src
                 }
               }
+              imageAcapitOne {
+                fixed {
+                  src
+                }
+              }
+              imageAcapitOneDescription
               contentful_id
             }
           }
@@ -38,15 +56,7 @@ exports.createPages = ({ graphql, actions }) => {
           createPage({
             path: `/posts/${node.contentful_id}`,
             component: template,
-            context: {
-              title: node.title,
-              introduction: node.introduction,
-              primaryImage: node.primaryImage,
-              createdAt: node.createdAt,
-              acapitOne: node.acapitOne,
-              imageAcapitOne: node.imageAcapitOne,
-              acapitTwo: node.acapitTwo
-            }
+            context: getPageContext(node)
           });
         });
         return;
