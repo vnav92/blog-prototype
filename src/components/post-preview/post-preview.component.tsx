@@ -8,6 +8,13 @@ import { ThemeMode } from '../../shared/theme/theme.type';
 
 import styles from './post-preview.module.scss';
 
+type PostPreviewProps = {
+  postPreview: Pick<
+    ContentfulBlogPost,
+    'contentful_id' | 'title' | 'introduction'
+  >;
+};
+
 const useThemedStyles = createUseStyles((theme: ThemeMode) => ({
   postPreviewWrapper: {
     borderColor: theme.secondaryColor
@@ -17,12 +24,6 @@ const useThemedStyles = createUseStyles((theme: ThemeMode) => ({
   }
 }));
 
-type PostPreviewProps = {
-  postPreview: Pick<
-    ContentfulBlogPost,
-    'contentful_id' | 'title' | 'introduction' | 'primaryImage'
-  >;
-};
 export const PostPreview: React.FC<PostPreviewProps> = ({
   postPreview
 }) => {
@@ -35,12 +36,6 @@ export const PostPreview: React.FC<PostPreviewProps> = ({
         styles.postPreviewWrapper
       )}
     >
-      <div className={styles.imageWrapper}>
-        <img
-          className={styles.image}
-          src={postPreview.primaryImage.fixed.src}
-        />
-      </div>
       <div className={styles.previewContentWrapper}>
         <h3 className={themedStyles.text}>{postPreview.title}</h3>
         <span
