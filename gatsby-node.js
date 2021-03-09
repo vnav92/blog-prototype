@@ -3,18 +3,6 @@ const path = require('path');
 const TEMPLATE_PATH =
   'src/components/blog-post/blog-post.component.tsx';
 
-const getPageContext = (data) => ({
-  title: data.title,
-  introduction: data.introduction,
-  primaryImage: data.primaryImage,
-  imageAcapitOne: data.imageAcapitOne,
-  createdAt: data.createdAt,
-  acapitOne: data.acapitOne,
-  imageAcapitOne: data.imageAcapitOne,
-  imageAcapitOneDescription: data.imageAcapitOneDescription,
-  acapitTwo: data.acapitTwo
-});
-
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   return new Promise((resolve, reject) => {
@@ -24,26 +12,12 @@ exports.createPages = ({ graphql, actions }) => {
         {
           allContentfulBlogPost {
             nodes {
-              acapitOne {
-                raw
-              }
-              acapitTwo {
-                raw
-              }
-              createdAt
-              introduction
               title
-              primaryImage {
-                fixed {
-                  src
-                }
+              introduction
+              createdAt
+              postContent {
+                raw
               }
-              imageAcapitOne {
-                fixed {
-                  src
-                }
-              }
-              imageAcapitOneDescription
               contentful_id
             }
           }
@@ -57,7 +31,12 @@ exports.createPages = ({ graphql, actions }) => {
           createPage({
             path: `/posts/${node.contentful_id}`,
             component: template,
-            context: getPageContext(node)
+            context: {
+              title: node.title,
+              introduction: node.introduction,
+              createdAt: node.createdAt,
+              postContent: node.postContent
+            }
           });
         });
         return;

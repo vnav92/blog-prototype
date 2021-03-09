@@ -23,8 +23,7 @@ const App: React.FC<AppProps> = ({ data }) => {
             postPreview={{
               contentful_id: post.contentful_id,
               title: post.title,
-              introduction: post.introduction,
-              primaryImage: post.primaryImage
+              introduction: post.introduction
             }}
           />
         ))}
@@ -47,11 +46,6 @@ export const query = graphql`
       nodes {
         title
         introduction
-        primaryImage {
-          fixed(height: 100) {
-            src
-          }
-        }
         contentful_id
       }
     }

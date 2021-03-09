@@ -10,13 +10,6 @@ $image-wrapper-width: 150px;
   cursor: pointer;
 }
 
-.imageWrapper {
-  width: $image-wrapper-width;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-}
-
 .previewContentWrapper {
   width: calc(100% - $image-wrapper-width);
   padding-left: multiplyDefaultSpacing(0.5);
