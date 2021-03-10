@@ -15,16 +15,8 @@ export const MainContent: React.FC<MainContentProps> = ({
 }) => (
   <div className={styles.wrapper}>
     <div className={styles.blogTitleWrapper}>
-      <h2
-        className={styles.blogTitle}
-      >
-        {blogTitle}
-      </h2>
-      <h3
-        className={styles.blogAuthor}
-      >
-        Blog of {blogAuthor}
-      </h3>
+      <h2 className={styles.blogTitle}>{blogTitle}</h2>
+      <h3 className={styles.blogAuthor}>Blog of {blogAuthor}</h3>
     </div>
     {children}
   </div>

@@ -15,17 +15,15 @@ type PostPreviewProps = {
 export const PostPreview: React.FC<PostPreviewProps> = ({
   postPreview
 }) => (
-    <Link
-      to={`posts/${postPreview.contentful_id}`}
-      className={styles.postPreviewWrapper}
-    >
-      <div className={styles.previewContentWrapper}>
-        <h3>{postPreview.title}</h3>
-        <span
-          className={styles.postIntroduction}
-        >
-          {postPreview.introduction}
-        </span>
-      </div>
-    </Link>
-  );
+  <Link
+    to={`posts/${postPreview.contentful_id}`}
+    className={styles.postPreviewWrapper}
+  >
+    <div className={styles.previewContentWrapper}>
+      <h3>{postPreview.title}</h3>
+      <span className={styles.postIntroduction}>
+        {postPreview.introduction}
+      </span>
+    </div>
+  </Link>
+);
