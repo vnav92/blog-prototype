@@ -1,17 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import classNames from 'classnames';
-import { createUseStyles } from 'react-jss';
-
-import { ThemeMode } from '../../theme/theme.type';
 
 import styles from './header.module.scss';
-
-const useThemedStyles = createUseStyles((theme: ThemeMode) => ({
-  headerWrapper: {
-    background: theme.primaryColor
-  }
-}));
 
 type HeaderProps = {
   title: string;
@@ -25,14 +15,9 @@ export const Header: React.FC<HeaderProps> = ({
   title,
   logoImageSrc,
   onThemeModeChange
-}) => {
-  const themedStyles = useThemedStyles();
-  return (
+}) => (
     <div
-      className={classNames(
-        themedStyles.headerWrapper,
-        styles.headerWrapper
-      )}
+      className={styles.headerWrapper}
     >
       <div className={styles.titleSection}>
         {logoImageSrc && (
@@ -53,4 +38,3 @@ export const Header: React.FC<HeaderProps> = ({
       <button onClick={onThemeModeChange}>toggle theme</button>
     </div>
   );
-};
