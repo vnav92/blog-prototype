@@ -13,23 +13,24 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
   min-height: 100%;
-  color: var(--foreground);
+  color: var(--font-color);
+  background: var(--background);
 }
 
 h1 {
   font-size: 2rem;
 }
 
+a {
+  color: var(--font-color);
+}
+
 .light {
-  --background: #f1faee;
-  --background-alt: #a8dadc;
-  --foreground: #1d3557;
-  --accent: #0e8185;
+  --font-color: #1d3557;
+  --backgroung: #ffffff;
 }
 
 .dark {
-  --background: #1d3557;
-  --background-alt: #457b9d;
-  --foreground: #f1faee;
-  --accent: #84a59d;
+  --font-color: #f1faee;
+  --background: #777777;
 }
