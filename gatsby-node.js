@@ -16,6 +16,12 @@ exports.createPages = ({ graphql, actions }) => {
               introduction
               createdAt
               postContent {
+                references {
+                  contentful_id
+                  fixed {
+                    src
+                  }
+                }
                 raw
               }
               contentful_id

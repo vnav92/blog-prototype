@@ -1,8 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import classNames from 'classnames';
+import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-
 import { Query } from '../../../graphql-types';
 import { PageLayout } from '../page-layout';
 
@@ -16,6 +15,17 @@ type BlogPostProps = {
 };
 
 const BlogPost: React.FC<BlogPostProps> = ({ pageContext, data }) => {
+  let rendererOptions = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        const image = pageContext.postContent.references.find(
+          (reference) =>
+            reference.contentful_id === node.data.target.sys.id
+        );
+        return <img src={image.fixed.src} />;
+      }
+    }
+  };
   const pageTitle = data.allContentfulBlogMetaData.nodes[0].title;
   const { title, introduction, postContent } = pageContext;
   return (
@@ -25,7 +35,10 @@ const BlogPost: React.FC<BlogPostProps> = ({ pageContext, data }) => {
           <h1 className={styles.title}>{title}</h1>
           <span className={styles.introduction}>{introduction}</span>
         </div>
-        {documentToReactComponents(JSON.parse(postContent.raw))}
+        {documentToReactComponents(
+          JSON.parse(postContent.raw),
+          rendererOptions
+        )}
       </div>
     </PageLayout>
   );
