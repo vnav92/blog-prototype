@@ -1,6 +1,9 @@
+@import '../../styles';
+
 .pageLayoutWrapper {
   height: 100%;
   width: 85%;
+  max-width: $page-layout-width;
   margin: auto;
   display: flex;
   flex-direction: column;

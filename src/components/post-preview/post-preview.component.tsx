@@ -8,22 +8,32 @@ import styles from './post-preview.module.scss';
 type PostPreviewProps = {
   postPreview: Pick<
     ContentfulBlogPost,
-    'contentful_id' | 'title' | 'introduction'
+    'contentful_id' | 'title' | 'introduction' | 'createdAt' | 'tags'
   >;
 };
 
 export const PostPreview: React.FC<PostPreviewProps> = ({
   postPreview
-}) => (
-  <Link
-    to={`posts/${postPreview.contentful_id}`}
-    className={styles.postPreviewWrapper}
-  >
+}) => {
+  const formattedDate = new Date(
+    postPreview.createdAt
+  ).toLocaleDateString();
+  return (
     <div className={styles.previewContentWrapper}>
-      <h3>{postPreview.title}</h3>
-      <span className={styles.postIntroduction}>
-        {postPreview.introduction}
-      </span>
+      <span className={styles.createdDate}>{formattedDate}</span>
+      <Link
+        to={`posts/${postPreview.contentful_id}`}
+        className={styles.postTitle}
+      >
+        {postPreview.title}
+      </Link>
+      <div className={styles.tagsWrapper}>
+        {postPreview.tags.map((tag, index) => (
+          <span className={styles.tag} key={index}>
+            {tag}
+          </span>
+        ))}
+      </div>
     </div>
-  </Link>
-);
+  );
+};

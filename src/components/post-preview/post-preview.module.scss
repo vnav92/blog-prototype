@@ -1,20 +1,36 @@
 @import '../../styles';
 
-$image-wrapper-width: 150px;
-
-.postPreviewWrapper {
-  display: flex;
-  border: 2px solid;
-  margin-bottom: multiplyDefaultSpacing(0.5);
-  padding: multiplyDefaultSpacing(0.5);
-  cursor: pointer;
-}
-
 .previewContentWrapper {
-  width: calc(100% - $image-wrapper-width);
-  padding-left: multiplyDefaultSpacing(0.5);
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: multiplyDefaultSpacing(3);
 }
 
-.postIntroduction {
-  margin-top: multiplyDefaultSpacing(2);
+.createdDate {
+  font-size: 1rem;
+  opacity: 0.75;
+  margin: {
+    bottom: multiplyDefaultSpacing(0.75);
+    right: multiplyDefaultSpacing(2.5);
+  }
+}
+
+.postTitle {
+  font-size: 2.75rem;
+  padding: 0;
+  text-decoration: none;
+}
+
+.tagsWrapper {
+  margin: {
+    bottom: multiplyDefaultSpacing(0.75);
+    left: multiplyDefaultSpacing(2.5);
+  }
+}
+
+.tag {
+  background: var(--font-color);
+  color: var(--background);
+  padding: multiplyDefaultSpacing(0.25);
+  margin-right: multiplyDefaultSpacing(0.25);
 }

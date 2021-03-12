@@ -21,6 +21,7 @@ exports.createPages = ({ graphql, actions }) => {
                   fixed {
                     src
                   }
+                  title
                 }
                 raw
               }

@@ -23,7 +23,9 @@ const App: React.FC<AppProps> = ({ data }) => {
             postPreview={{
               contentful_id: post.contentful_id,
               title: post.title,
-              introduction: post.introduction
+              introduction: post.introduction,
+              createdAt: post.createdAt,
+              tags: post.tags
             }}
           />
         ))}
@@ -47,6 +49,8 @@ export const query = graphql`
         title
         introduction
         contentful_id
+        createdAt
+        tags
       }
     }
   }
