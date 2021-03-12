@@ -22,10 +22,17 @@ const BlogPost: React.FC<BlogPostProps> = ({ pageContext, data }) => {
           (reference) =>
             reference.contentful_id === node.data.target.sys.id
         );
-        return <img src={image.fixed.src} />;
+        return (
+          <img
+            className={styles.postImage}
+            src={image.fixed.src}
+            alt={image.title}
+          />
+        );
       }
     }
   };
+
   const pageTitle = data.allContentfulBlogMetaData.nodes[0].title;
   const { title, introduction, postContent } = pageContext;
   return (
