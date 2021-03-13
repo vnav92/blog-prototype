@@ -2,7 +2,11 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import { Query } from '../../graphql-types';
-import { PageLayout, MainContent, PostPreview, BlogPostList } from '../components';
+import {
+  PageLayout,
+  MainContent,
+  BlogPostList
+} from '../components';
 
 type AppProps = {
   data: {
@@ -17,8 +21,7 @@ const App: React.FC<AppProps> = ({ data }) => {
   return (
     <PageLayout title={title}>
       <MainContent blogTitle={title} blogAuthor={author}>
-        <BlogPostList blogPosts={blogPosts}/>
-        
+        <BlogPostList blogPosts={blogPosts} />
       </MainContent>
     </PageLayout>
   );
