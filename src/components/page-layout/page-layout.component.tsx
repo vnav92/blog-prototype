@@ -31,6 +31,7 @@ export const PageLayout = ({ children, title }) => {
         onThemeModeChange={() =>
           setIsDarkMode((isEnabled) => !isEnabled)
         }
+        isDarkMode={isDarkMode}
       />
       <div className={styles.childrenWrapper}>{children}</div>
     </div>

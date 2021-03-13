@@ -3,10 +3,21 @@
 .headerWrapper {
   padding: $default-spacing;
   display: flex;
+  background: var(--primary-color);
+  position: fixed;
+  top: 0;
+  width: 85%;
+  max-width: $page-layout-width;
 }
 
 .titleSection {
   display: inline-block;
+}
+
+.blogTitle {
+  color: var(--secondary-color);
+  font-size: 2rem;
+  text-decoration: none;
 }
 
 .navigation {
@@ -19,5 +30,18 @@
 }
 
 .navigationItem {
-  margin: 0 multiplyDefaultSpacing(2);
+  margin-right: multiplyDefaultSpacing(2);
+}
+
+.subPageLink {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+.themeSwitchButton {
+  background: transparent;
+  border-radius: 50%;
+  border: transparent;
+  color: var(--secondary-color);
+  font-size: 1.5rem;
 }
