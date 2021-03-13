@@ -2,7 +2,11 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import { Query } from '../../graphql-types';
-import { PageLayout, MainContent, PostPreview } from '../components';
+import {
+  PageLayout,
+  MainContent,
+  BlogPostList
+} from '../components';
 
 type AppProps = {
   data: {
@@ -17,18 +21,7 @@ const App: React.FC<AppProps> = ({ data }) => {
   return (
     <PageLayout title={title}>
       <MainContent blogTitle={title} blogAuthor={author}>
-        {blogPosts.map((post) => (
-          <PostPreview
-            key={post.contentful_id}
-            postPreview={{
-              contentful_id: post.contentful_id,
-              title: post.title,
-              introduction: post.introduction,
-              createdAt: post.createdAt,
-              tags: post.tags
-            }}
-          />
-        ))}
+        <BlogPostList blogPosts={blogPosts} />
       </MainContent>
     </PageLayout>
   );

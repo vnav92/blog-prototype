@@ -1,0 +1,19 @@
+@import '../../../styles';
+
+.paginationWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: multiplyDefaultSpacing(1.5);
+}
+
+.arrowButton {
+  margin: 0 multiplyDefaultSpacing(1.5);
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+}
+
+.icon {
+  margin: 0 multiplyDefaultSpacing(0.5);
+}

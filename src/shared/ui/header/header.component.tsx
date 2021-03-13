@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './header.module.scss';
@@ -25,14 +25,20 @@ export const Header: React.FC<HeaderProps> = ({
       {logoImageSrc && (
         <img src={logoImageSrc} alt="blog logo image" />
       )}
-      <Link to="/" className={styles.blogTitle}>{title}</Link>
+      <Link to="/" className={styles.blogTitle}>
+        {title}
+      </Link>
     </div>
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
-        <Link to="/" className={styles.subPageLink}>Blog</Link>
+        <Link to="/" className={styles.subPageLink}>
+          Blog
+        </Link>
       </li>
       <li className={styles.navigationItem}>
-        <Link to="/about" className={styles.subPageLink}>About me</Link>
+        <Link to="/about" className={styles.subPageLink}>
+          About me
+        </Link>
       </li>
     </ul>
     <button

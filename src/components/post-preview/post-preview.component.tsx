@@ -28,7 +28,7 @@ export const PostPreview: React.FC<PostPreviewProps> = ({
         {postPreview.title}
       </Link>
       <div className={styles.tagsWrapper}>
-        {postPreview.tags.map((tag, index) => (
+        {postPreview.tags?.map((tag, index) => (
           <span className={styles.tag} key={index}>
             {tag}
           </span>
