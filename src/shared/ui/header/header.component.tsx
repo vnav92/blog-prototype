@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './header.module.scss';
 
@@ -8,12 +10,14 @@ type HeaderProps = {
   className?: string;
   // TODO remove optional from prop when image serving will be handled
   logoImageSrc?: string;
+  isDarkMode: boolean;
   onThemeModeChange: () => void;
 };
 
 export const Header: React.FC<HeaderProps> = ({
   title,
   logoImageSrc,
+  isDarkMode,
   onThemeModeChange
 }) => (
   <div className={styles.headerWrapper}>
@@ -21,18 +25,21 @@ export const Header: React.FC<HeaderProps> = ({
       {logoImageSrc && (
         <img src={logoImageSrc} alt="blog logo image" />
       )}
-      <h1>
-        <Link to="/">{title}</Link>
-      </h1>
+      <Link to="/" className={styles.blogTitle}>{title}</Link>
     </div>
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
-        <Link to="/">Blog</Link>
+        <Link to="/" className={styles.subPageLink}>Blog</Link>
       </li>
-      <li>
-        <Link to="/about">About me</Link>
+      <li className={styles.navigationItem}>
+        <Link to="/about" className={styles.subPageLink}>About me</Link>
       </li>
     </ul>
-    <button onClick={onThemeModeChange}>toggle theme</button>
+    <button
+      className={styles.themeSwitchButton}
+      onClick={onThemeModeChange}
+    >
+      <FontAwesomeIcon icon={isDarkMode ? faMoon : faSun} />
+    </button>
   </div>
 );
