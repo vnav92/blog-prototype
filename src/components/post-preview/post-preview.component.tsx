@@ -22,7 +22,7 @@ export const PostPreview: React.FC<PostPreviewProps> = ({
     <div className={styles.previewContentWrapper}>
       <span className={styles.createdDate}>{formattedDate}</span>
       <Link
-        to={`posts/${postPreview.contentful_id}`}
+        to={`${process.env.GATSBY_POST_ROUTE}/${postPreview.contentful_id}`}
         className={styles.postTitle}
       >
         {postPreview.title}
