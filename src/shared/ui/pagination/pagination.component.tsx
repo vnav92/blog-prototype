@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Link } from 'gatsby';
+import classNames from 'classnames';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -9,48 +11,43 @@ import {
 import styles from './pagination.module.scss';
 
 type PaginationProps = {
-  itemsPerPage: number;
-  allItemsNumber: number;
-  onCurrentPageChange: (currentPage: number) => void;
+  numberOfPages: number;
+  currentPage: number;
 };
 export const Pagination: React.FC<PaginationProps> = ({
-  itemsPerPage,
-  allItemsNumber,
-  onCurrentPageChange
+  numberOfPages,
+  currentPage
 }) => {
-  const paginationButtonsNumber = Math.ceil(
-    allItemsNumber / itemsPerPage
-  );
-  const [currentPage, setCurrentPage] = useState(0);
-
-  useEffect(() => {
-    onCurrentPageChange(currentPage);
-  }, [currentPage]);
-
   return (
     <div className={styles.paginationWrapper}>
-      <button
-        className={styles.arrowButton}
-        disabled={currentPage === 0}
-        onClick={() => setCurrentPage((page) => page - 1)}
+      <Link
+        to={
+          currentPage === 2
+            ? '/'
+            : `${process.env.GATSBY_PAGE_ROUTE}/${currentPage - 1}`
+        }
+        className={classNames(styles.paginationLink, {
+          [styles.disabledLink]: currentPage === 1
+        })}
       >
         <FontAwesomeIcon
           icon={faChevronLeft}
           className={styles.icon}
         />
         Previous page
-      </button>
-      <button
-        className={styles.arrowButton}
-        disabled={currentPage === paginationButtonsNumber}
-        onClick={() => setCurrentPage((page) => page + 1)}
+      </Link>
+      <Link
+        to={`${process.env.GATSBY_PAGE_ROUTE}/${currentPage + 1}`}
+        className={classNames(styles.paginationLink, {
+          [styles.disabledLink]: currentPage === numberOfPages
+        })}
       >
         Next page
         <FontAwesomeIcon
           icon={faChevronRight}
           className={styles.icon}
         />
-      </button>
+      </Link>
     </div>
   );
 };

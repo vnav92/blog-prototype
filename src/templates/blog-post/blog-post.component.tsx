@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Query } from '../../../graphql-types';
-import { PageLayout } from '../page-layout';
+import { PageLayout } from '../../components/page-layout';
 
 import styles from './blog-post.module.scss';
 

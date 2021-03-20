@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { graphql } from 'gatsby';
 
 import { Query } from '../../../graphql-types';
 import { Pagination } from '../../shared';
@@ -10,23 +11,13 @@ type BlogPostListProps = {
   blogPosts: Query['contentfulBlogPost'][];
 };
 
-const ITEMS_PER_PAGE = 2;
-
 export const BlogPostList: React.FC<BlogPostListProps> = ({
   blogPosts
 }) => {
-  const sortedBlogPosts = blogPosts.sort(
-    (a, b) =>
-      new Date(b.createdAt).getTime() -
-      new Date(a.createdAt).getTime()
-  );
-  const [visiblePosts, setVisiblePosts] = useState(
-    sortedBlogPosts.slice(0, ITEMS_PER_PAGE)
-  );
   return (
     <div className={styles.blogPostListWrapper}>
       <div className={styles.blogPostList}>
-        {visiblePosts.map((post) => (
+        {blogPosts.map((post) => (
           <PostPreview
             key={post.contentful_id}
             postPreview={{
@@ -39,20 +30,6 @@ export const BlogPostList: React.FC<BlogPostListProps> = ({
           />
         ))}
       </div>
-      {sortedBlogPosts.length > ITEMS_PER_PAGE && (
-        <Pagination
-          itemsPerPage={ITEMS_PER_PAGE}
-          allItemsNumber={sortedBlogPosts.length}
-          onCurrentPageChange={(currentPage: number) =>
-            setVisiblePosts(
-              sortedBlogPosts.slice(
-                currentPage * ITEMS_PER_PAGE,
-                currentPage * ITEMS_PER_PAGE + ITEMS_PER_PAGE
-              )
-            )
-          }
-        />
-      )}
     </div>
   );
 };

@@ -7,13 +7,19 @@
   padding: multiplyDefaultSpacing(1.5);
 }
 
-.arrowButton {
+.paginationLink {
   margin: 0 multiplyDefaultSpacing(1.5);
   background: transparent;
   border: none;
   font-size: 1.25rem;
+  text-decoration: none;
 }
 
 .icon {
   margin: 0 multiplyDefaultSpacing(0.5);
+}
+
+.disabledLink {
+  opacity: 0.5;
+  pointer-events: none;
 }
