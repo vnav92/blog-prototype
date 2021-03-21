@@ -13,8 +13,13 @@ exports.createPages = ({ graphql, actions }) => {
         {
           allContentfulBlogMetaData {
             nodes {
-              author
+              authorName
               title
+              authorPhoto {
+                fixed {
+                  src
+                }
+              }
             }
           }
           allContentfulBlogPost {
@@ -59,7 +64,8 @@ exports.createPages = ({ graphql, actions }) => {
               skip: i * postsPerPage,
               numPages,
               currentPage: i + 1,
-              author: blogMetaData.author,
+              authorName: blogMetaData.authorName,
+              authorPhoto: blogMetaData.authorPhoto,
               title: blogMetaData.title
             }
           });

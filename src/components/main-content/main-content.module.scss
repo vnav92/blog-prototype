@@ -1,3 +1,7 @@
+@import '../../styles';
+
+$image-wrapper-size: 90px;
+
 .wrapper {
   width: 100%;
   height: 100%;
@@ -5,10 +9,19 @@
   flex-direction: column;
 }
 
-.blogTitleWrapper {
+.imageWrapper {
+  width: $image-wrapper-size;
+  height: $image-wrapper-size;
+  border-radius: 50%;
+  position: relative;
+  top: calc(#{$image-wrapper-size} / 15);
+  margin-right: multiplyDefaultSpacing(2);
+}
+
+.blogHeadingWrapper {
   height: 40%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
