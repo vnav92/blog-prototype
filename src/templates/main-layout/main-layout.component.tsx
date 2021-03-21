@@ -5,7 +5,6 @@ import {
   PageLayout,
   BlogPostList
 } from '../../components';
-import { createEmitAndSemanticDiagnosticsBuilderProgram } from 'typescript';
 import { Pagination } from '../../shared';
 
 const MainLayout = ({ data, pathContext }) => {
@@ -13,7 +12,8 @@ const MainLayout = ({ data, pathContext }) => {
     <PageLayout title={pathContext.title}>
       <MainContent
         blogTitle={pathContext.title}
-        blogAuthor={pathContext.author}
+        blogAuthor={pathContext.authorName}
+        blogAuthorPhoto={pathContext.authorPhoto}
       >
         <BlogPostList blogPosts={data.allContentfulBlogPost.nodes} />
         <Pagination
