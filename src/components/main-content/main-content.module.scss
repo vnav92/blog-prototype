@@ -39,3 +39,25 @@ $image-wrapper-size: 90px;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+
+.socialLinksWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 multiplyDefaultSpacing(1);
+}
+
+.socialLink {
+  width: 50px;
+  height: 50px;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: multiplyDefaultSpacing(1);
+}
+
+.socialLinkIcon {
+  color: var(--secondary-color);
+  font-size: 2rem;
+}

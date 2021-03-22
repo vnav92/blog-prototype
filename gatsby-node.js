@@ -20,6 +20,8 @@ exports.createPages = ({ graphql, actions }) => {
                   src
                 }
               }
+              authorGithubLink
+              authorTwitterLink
             }
           }
           allContentfulBlogPost {
@@ -64,9 +66,7 @@ exports.createPages = ({ graphql, actions }) => {
               skip: i * postsPerPage,
               numPages,
               currentPage: i + 1,
-              authorName: blogMetaData.authorName,
-              authorPhoto: blogMetaData.authorPhoto,
-              title: blogMetaData.title
+              metaData: blogMetaData
             }
           });
         });

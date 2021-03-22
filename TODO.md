@@ -6,8 +6,6 @@
 
 # Uncomment and configure manifest plugin in gatsby-config.js
 
-# Add and configure gatsby-browser.js
-
 # Add precommit-hook
 
 # Add proper readme
@@ -17,5 +15,3 @@
 # Add “blur-up” technique or a ”traced placeholder” SVG to show a preview of the image while it loads
 
 # Add blog-post header background proper styling
-
-# Add route prefixes to env file

@@ -1,29 +1,39 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+
 import {
   MainContent,
   PageLayout,
   BlogPostList
 } from '../../components';
 import { Pagination } from '../../shared';
+import { Query } from '../../../graphql-types';
 
-const MainLayout = ({ data, pathContext }) => {
-  return (
-    <PageLayout title={pathContext.title}>
-      <MainContent
-        blogTitle={pathContext.title}
-        blogAuthor={pathContext.authorName}
-        blogAuthorPhoto={pathContext.authorPhoto}
-      >
-        <BlogPostList blogPosts={data.allContentfulBlogPost.nodes} />
-        <Pagination
-          numberOfPages={pathContext.numPages}
-          currentPage={pathContext.currentPage}
-        />
-      </MainContent>
-    </PageLayout>
-  );
+type MainLayoutProps = {
+  data: Query;
+  pathContext: {
+    limit: number;
+    skip: number;
+    numPages: number;
+    currentPage: number;
+    metaData: Query['contentfulBlogMetaData'];
+  };
 };
+
+const MainLayout: React.FC<MainLayoutProps> = ({
+  data,
+  pathContext
+}) => (
+  <PageLayout title={pathContext.metaData.title}>
+    <MainContent blogMetaData={pathContext.metaData}>
+      <BlogPostList blogPosts={data.allContentfulBlogPost.nodes} />
+      <Pagination
+        numberOfPages={pathContext.numPages}
+        currentPage={pathContext.currentPage}
+      />
+    </MainContent>
+  </PageLayout>
+);
 
 export default MainLayout;
 
